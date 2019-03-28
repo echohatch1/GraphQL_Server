@@ -14,6 +14,8 @@ type BatchPayload {
   count: Long!
 }
 
+scalar DateTime
+
 scalar Long
 
 type Mutation {
@@ -39,10 +41,13 @@ type PageInfo {
 }
 
 type Post {
-  author: User
+  author: User!
+  content: String
+  createdAt: DateTime!
   id: ID!
   published: Boolean!
   title: String!
+  updatedAt: DateTime!
 }
 
 type PostConnection {
@@ -52,7 +57,8 @@ type PostConnection {
 }
 
 input PostCreateInput {
-  author: UserCreateOneWithoutPostsInput
+  author: UserCreateOneWithoutPostsInput!
+  content: String
   published: Boolean
   title: String!
 }
@@ -63,6 +69,7 @@ input PostCreateManyWithoutAuthorInput {
 }
 
 input PostCreateWithoutAuthorInput {
+  content: String
   published: Boolean
   title: String!
 }
@@ -73,6 +80,8 @@ type PostEdge {
 }
 
 enum PostOrderByInput {
+  content_ASC
+  content_DESC
   createdAt_ASC
   createdAt_DESC
   id_ASC
@@ -87,6 +96,28 @@ enum PostOrderByInput {
 
 input PostScalarWhereInput {
   AND: [PostScalarWhereInput!]
+  content: String
+  content_contains: String
+  content_ends_with: String
+  content_gt: String
+  content_gte: String
+  content_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_not: String
+  content_not_contains: String
+  content_not_ends_with: String
+  content_not_in: [String!]
+  content_not_starts_with: String
+  content_starts_with: String
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -119,20 +150,31 @@ input PostScalarWhereInput {
   title_not_in: [String!]
   title_not_starts_with: String
   title_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input PostUpdateInput {
-  author: UserUpdateOneWithoutPostsInput
+  author: UserUpdateOneRequiredWithoutPostsInput
+  content: String
   published: Boolean
   title: String
 }
 
 input PostUpdateManyDataInput {
+  content: String
   published: Boolean
   title: String
 }
 
 input PostUpdateManyMutationInput {
+  content: String
   published: Boolean
   title: String
 }
@@ -155,6 +197,7 @@ input PostUpdateManyWithWhereNestedInput {
 }
 
 input PostUpdateWithoutAuthorDataInput {
+  content: String
   published: Boolean
   title: String
 }
@@ -173,6 +216,28 @@ input PostUpsertWithWhereUniqueWithoutAuthorInput {
 input PostWhereInput {
   AND: [PostWhereInput!]
   author: UserWhereInput
+  content: String
+  content_contains: String
+  content_ends_with: String
+  content_gt: String
+  content_gte: String
+  content_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_not: String
+  content_not_contains: String
+  content_not_ends_with: String
+  content_not_in: [String!]
+  content_not_starts_with: String
+  content_starts_with: String
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -205,6 +270,14 @@ input PostWhereInput {
   title_not_in: [String!]
   title_not_starts_with: String
   title_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input PostWhereUniqueInput {
@@ -221,9 +294,9 @@ type Query {
 }
 
 type User {
-  email: String
+  email: String!
   id: ID!
-  name: String!
+  name: String
   posts(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): [Post!]
 }
 
@@ -234,8 +307,8 @@ type UserConnection {
 }
 
 input UserCreateInput {
-  email: String
-  name: String!
+  email: String!
+  name: String
   posts: PostCreateManyWithoutAuthorInput
 }
 
@@ -245,8 +318,8 @@ input UserCreateOneWithoutPostsInput {
 }
 
 input UserCreateWithoutPostsInput {
-  email: String
-  name: String!
+  email: String!
+  name: String
 }
 
 type UserEdge {
@@ -278,11 +351,9 @@ input UserUpdateManyMutationInput {
   name: String
 }
 
-input UserUpdateOneWithoutPostsInput {
+input UserUpdateOneRequiredWithoutPostsInput {
   connect: UserWhereUniqueInput
   create: UserCreateWithoutPostsInput
-  delete: Boolean
-  disconnect: Boolean
   update: UserUpdateWithoutPostsDataInput
   upsert: UserUpsertWithoutPostsInput
 }

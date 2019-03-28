@@ -1,0 +1,23 @@
+# Create a new product
+mutation {
+  createProduct(
+    data: {
+      price: 42
+      desc: "Here is some product"
+      name: "Some product"
+    }
+  ) {
+    id
+    name
+    price
+    desc
+  }
+}
+
+# get all products
+query {
+  products {
+    id
+    name
+  }
+}

@@ -12,7 +12,8 @@ declare global {
 
 export interface NexusGenInputs {
   PostCreateInput: { // input type
-    author?: NexusGenInputs['UserCreateOneWithoutPostsInput'] | null; // UserCreateOneWithoutPostsInput
+    author: NexusGenInputs['UserCreateOneWithoutPostsInput']; // UserCreateOneWithoutPostsInput!
+    content?: string | null; // String
     published?: boolean | null; // Boolean
     title: string; // String!
   }
@@ -21,11 +22,34 @@ export interface NexusGenInputs {
     create?: NexusGenInputs['PostCreateWithoutAuthorInput'][] | null; // [PostCreateWithoutAuthorInput!]
   }
   PostCreateWithoutAuthorInput: { // input type
+    content?: string | null; // String
     published?: boolean | null; // Boolean
     title: string; // String!
   }
   PostScalarWhereInput: { // input type
     AND?: NexusGenInputs['PostScalarWhereInput'][] | null; // [PostScalarWhereInput!]
+    content?: string | null; // String
+    content_contains?: string | null; // String
+    content_ends_with?: string | null; // String
+    content_gt?: string | null; // String
+    content_gte?: string | null; // String
+    content_in?: string[] | null; // [String!]
+    content_lt?: string | null; // String
+    content_lte?: string | null; // String
+    content_not?: string | null; // String
+    content_not_contains?: string | null; // String
+    content_not_ends_with?: string | null; // String
+    content_not_in?: string[] | null; // [String!]
+    content_not_starts_with?: string | null; // String
+    content_starts_with?: string | null; // String
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -58,17 +82,28 @@ export interface NexusGenInputs {
     title_not_in?: string[] | null; // [String!]
     title_not_starts_with?: string | null; // String
     title_starts_with?: string | null; // String
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   PostUpdateInput: { // input type
-    author?: NexusGenInputs['UserUpdateOneWithoutPostsInput'] | null; // UserUpdateOneWithoutPostsInput
+    author?: NexusGenInputs['UserUpdateOneRequiredWithoutPostsInput'] | null; // UserUpdateOneRequiredWithoutPostsInput
+    content?: string | null; // String
     published?: boolean | null; // Boolean
     title?: string | null; // String
   }
   PostUpdateManyDataInput: { // input type
+    content?: string | null; // String
     published?: boolean | null; // Boolean
     title?: string | null; // String
   }
   PostUpdateManyMutationInput: { // input type
+    content?: string | null; // String
     published?: boolean | null; // Boolean
     title?: string | null; // String
   }
@@ -92,6 +127,7 @@ export interface NexusGenInputs {
     where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
   }
   PostUpdateWithoutAuthorDataInput: { // input type
+    content?: string | null; // String
     published?: boolean | null; // Boolean
     title?: string | null; // String
   }
@@ -103,6 +139,28 @@ export interface NexusGenInputs {
   PostWhereInput: { // input type
     AND?: NexusGenInputs['PostWhereInput'][] | null; // [PostWhereInput!]
     author?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    content?: string | null; // String
+    content_contains?: string | null; // String
+    content_ends_with?: string | null; // String
+    content_gt?: string | null; // String
+    content_gte?: string | null; // String
+    content_in?: string[] | null; // [String!]
+    content_lt?: string | null; // String
+    content_lte?: string | null; // String
+    content_not?: string | null; // String
+    content_not_contains?: string | null; // String
+    content_not_ends_with?: string | null; // String
+    content_not_in?: string[] | null; // [String!]
+    content_not_starts_with?: string | null; // String
+    content_starts_with?: string | null; // String
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -135,13 +193,21 @@ export interface NexusGenInputs {
     title_not_in?: string[] | null; // [String!]
     title_not_starts_with?: string | null; // String
     title_starts_with?: string | null; // String
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   PostWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
   UserCreateInput: { // input type
-    email?: string | null; // String
-    name: string; // String!
+    email: string; // String!
+    name?: string | null; // String
     posts?: NexusGenInputs['PostCreateManyWithoutAuthorInput'] | null; // PostCreateManyWithoutAuthorInput
   }
   UserCreateOneWithoutPostsInput: { // input type
@@ -149,8 +215,8 @@ export interface NexusGenInputs {
     create?: NexusGenInputs['UserCreateWithoutPostsInput'] | null; // UserCreateWithoutPostsInput
   }
   UserCreateWithoutPostsInput: { // input type
-    email?: string | null; // String
-    name: string; // String!
+    email: string; // String!
+    name?: string | null; // String
   }
   UserUpdateInput: { // input type
     email?: string | null; // String
@@ -161,11 +227,9 @@ export interface NexusGenInputs {
     email?: string | null; // String
     name?: string | null; // String
   }
-  UserUpdateOneWithoutPostsInput: { // input type
+  UserUpdateOneRequiredWithoutPostsInput: { // input type
     connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
     create?: NexusGenInputs['UserCreateWithoutPostsInput'] | null; // UserCreateWithoutPostsInput
-    delete?: boolean | null; // Boolean
-    disconnect?: boolean | null; // Boolean
     update?: NexusGenInputs['UserUpdateWithoutPostsDataInput'] | null; // UserUpdateWithoutPostsDataInput
     upsert?: NexusGenInputs['UserUpsertWithoutPostsInput'] | null; // UserUpsertWithoutPostsInput
   }
@@ -234,7 +298,7 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
-  PostOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "published_ASC" | "published_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  PostOrderByInput: "content_ASC" | "content_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "published_ASC" | "published_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
@@ -256,9 +320,12 @@ export interface NexusGenRootTypes {
     startCursor?: string | null; // String
   }
   Post: { // root type
+    content?: string | null; // String
+    createdAt: any; // DateTime!
     id: string; // ID!
     published: boolean; // Boolean!
     title: string; // String!
+    updatedAt: any; // DateTime!
   }
   PostConnection: { // root type
     edges: NexusGenRootTypes['PostEdge'][]; // [PostEdge!]!
@@ -270,9 +337,9 @@ export interface NexusGenRootTypes {
   }
   Query: {};
   User: { // root type
-    email?: string | null; // String
+    email: string; // String!
     id: string; // ID!
-    name: string; // String!
+    name?: string | null; // String
   }
   UserConnection: { // root type
     edges: NexusGenRootTypes['UserEdge'][]; // [UserEdge!]!
@@ -287,6 +354,7 @@ export interface NexusGenRootTypes {
   Float: number;
   Boolean: boolean;
   ID: string;
+  DateTime: any;
   Long: any;
 }
 
@@ -310,7 +378,7 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   UserCreateWithoutPostsInput: NexusGenInputs['UserCreateWithoutPostsInput'];
   UserUpdateInput: NexusGenInputs['UserUpdateInput'];
   UserUpdateManyMutationInput: NexusGenInputs['UserUpdateManyMutationInput'];
-  UserUpdateOneWithoutPostsInput: NexusGenInputs['UserUpdateOneWithoutPostsInput'];
+  UserUpdateOneRequiredWithoutPostsInput: NexusGenInputs['UserUpdateOneRequiredWithoutPostsInput'];
   UserUpdateWithoutPostsDataInput: NexusGenInputs['UserUpdateWithoutPostsDataInput'];
   UserUpsertWithoutPostsInput: NexusGenInputs['UserUpsertWithoutPostsInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
@@ -350,10 +418,13 @@ export interface NexusGenFieldTypes {
     startCursor: string | null; // String
   }
   Post: { // field return type
-    author: NexusGenRootTypes['User'] | null; // User
+    author: NexusGenRootTypes['User']; // User!
+    content: string | null; // String
+    createdAt: any; // DateTime!
     id: string; // ID!
     published: boolean; // Boolean!
     title: string; // String!
+    updatedAt: any; // DateTime!
   }
   PostConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregatePost']; // AggregatePost!
@@ -373,9 +444,9 @@ export interface NexusGenFieldTypes {
     usersConnection: NexusGenRootTypes['UserConnection']; // UserConnection!
   }
   User: { // field return type
-    email: string | null; // String
+    email: string; // String!
     id: string; // ID!
-    name: string; // String!
+    name: string | null; // String
     posts: NexusGenRootTypes['Post'][] | null; // [Post!]
   }
   UserConnection: { // field return type
@@ -500,13 +571,13 @@ export interface NexusGenInheritedFields {}
 
 export type NexusGenObjectNames = "AggregatePost" | "AggregateUser" | "BatchPayload" | "Mutation" | "PageInfo" | "Post" | "PostConnection" | "PostEdge" | "Query" | "User" | "UserConnection" | "UserEdge";
 
-export type NexusGenInputNames = "PostCreateInput" | "PostCreateManyWithoutAuthorInput" | "PostCreateWithoutAuthorInput" | "PostScalarWhereInput" | "PostUpdateInput" | "PostUpdateManyDataInput" | "PostUpdateManyMutationInput" | "PostUpdateManyWithWhereNestedInput" | "PostUpdateManyWithoutAuthorInput" | "PostUpdateWithWhereUniqueWithoutAuthorInput" | "PostUpdateWithoutAuthorDataInput" | "PostUpsertWithWhereUniqueWithoutAuthorInput" | "PostWhereInput" | "PostWhereUniqueInput" | "UserCreateInput" | "UserCreateOneWithoutPostsInput" | "UserCreateWithoutPostsInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserUpdateOneWithoutPostsInput" | "UserUpdateWithoutPostsDataInput" | "UserUpsertWithoutPostsInput" | "UserWhereInput" | "UserWhereUniqueInput";
+export type NexusGenInputNames = "PostCreateInput" | "PostCreateManyWithoutAuthorInput" | "PostCreateWithoutAuthorInput" | "PostScalarWhereInput" | "PostUpdateInput" | "PostUpdateManyDataInput" | "PostUpdateManyMutationInput" | "PostUpdateManyWithWhereNestedInput" | "PostUpdateManyWithoutAuthorInput" | "PostUpdateWithWhereUniqueWithoutAuthorInput" | "PostUpdateWithoutAuthorDataInput" | "PostUpsertWithWhereUniqueWithoutAuthorInput" | "PostWhereInput" | "PostWhereUniqueInput" | "UserCreateInput" | "UserCreateOneWithoutPostsInput" | "UserCreateWithoutPostsInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserUpdateOneRequiredWithoutPostsInput" | "UserUpdateWithoutPostsDataInput" | "UserUpsertWithoutPostsInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
 export type NexusGenEnumNames = "PostOrderByInput" | "UserOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 
-export type NexusGenScalarNames = "Boolean" | "Float" | "ID" | "Int" | "Long" | "String";
+export type NexusGenScalarNames = "Boolean" | "DateTime" | "Float" | "ID" | "Int" | "Long" | "String";
 
 export type NexusGenUnionNames = never;
 

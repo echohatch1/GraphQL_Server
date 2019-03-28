@@ -4,16 +4,20 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "load": "node ./seed/seedDatabase.js",
     "dockerStart": "docker-compose -f ./docker-compose.yml up -d",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node-dev --no-notify --respawn --transpileOnly ./",
-    "reset": "prisma reset --force"
+    "deploy": "prisma deploy",
+    "reset": "prisma reset --force",
+    "delete": "prisma delete --force"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "graphql": "^14.1.1",
+    "graphql-request": "^1.8.2",
     "graphql-yoga": "^1.17.4",
     "nexus": "^0.10.0",
     "nexus-prisma": "^0.3.4",

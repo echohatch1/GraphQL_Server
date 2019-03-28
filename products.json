@@ -1,0 +1,212 @@
+[
+    {
+        "_id": "5c6e04ef35b6501718e0dbbe",
+        "name": "chapstick",
+        "price": 3,
+        "desc": "Just another lip balm",
+        "__v": 0
+    },
+    {
+        "_id": "5c6e063435b6501718e0dbc0",
+        "name": "kit kat bar",
+        "price": 1,
+        "desc": "Break me off a peice!",
+        "__v": 0
+    },
+    {
+        "_id": "5c6e3328347577473495814c",
+        "name": "toothbrush",
+        "price": 3,
+        "desc": "For cleaning teeth",
+        "__v": 0
+    },
+    {
+        "_id": "5c6e38ce76fe383c9ca2d203",
+        "name": "shoes",
+        "price": 40,
+        "desc": "Look fly",
+        "__v": 0
+    },
+    {
+        "_id": "5c6ed9dea07a8a149c5ae137",
+        "name": "another",
+        "price": 1,
+        "desc": "somthing",
+        "__v": 0
+    },
+    {
+        "_id": "5c6f3a886601620004535538",
+        "name": "headphones",
+        "price": 20,
+        "desc": "We got beats",
+        "__v": 0
+    },
+    {
+        "_id": "5c7021779519940004362652",
+        "name": "screwdriver set",
+        "price": 20,
+        "desc": "Fix stuff",
+        "__v": 0
+    },
+    {
+        "_id": "5c7022009519940004362653",
+        "name": "hammer",
+        "price": 10,
+        "desc": "Fix stuff",
+        "__v": 0
+    },
+    {
+        "_id": "5c70221a9519940004362654",
+        "name": "saw",
+        "price": 30,
+        "desc": "Fix stuff",
+        "__v": 0
+    },
+    {
+        "_id": "5c7022439519940004362655",
+        "name": "pliars",
+        "price": 10,
+        "desc": "Fix stuff",
+        "__v": 0
+    },
+    {
+        "_id": "5c7022f39519940004362656",
+        "name": "tape measure",
+        "price": 10,
+        "desc": "Fix stuff",
+        "__v": 0
+    },
+    {
+        "_id": "5c7023039519940004362657",
+        "name": "wrench",
+        "price": 10,
+        "desc": "Fix stuff",
+        "__v": 0
+    },
+    {
+        "_id": "5c7023519519940004362658",
+        "name": "toolbox",
+        "price": 40,
+        "desc": "Fix stuff",
+        "__v": 0
+    },
+    {
+        "_id": "5c70804635408c00045de49a",
+        "name": "google home",
+        "price": 49,
+        "desc": "Assistant speaker.",
+        "__v": 0
+    },
+    {
+        "_id": "5c70806635408c00045de49b",
+        "name": "alexa",
+        "price": 49,
+        "desc": "Assistant speaker.",
+        "__v": 0
+    },
+    {
+        "_id": "5c70808f35408c00045de49c",
+        "name": "apple home pod",
+        "price": 349.99,
+        "desc": "Assistant speaker.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71aa221b16fd0004d6c8fd",
+        "name": "google pixel",
+        "price": 500,
+        "desc": "Made by Google",
+        "__v": 0
+    },
+    {
+        "_id": "5c71aeaf1b16fd0004d6c8fe",
+        "name": "iphone",
+        "price": 1000,
+        "desc": "Designed by Apple in California.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71aedd1b16fd0004d6c8ff",
+        "name": "chips",
+        "price": 4,
+        "desc": "A great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71aefd1b16fd0004d6c900",
+        "name": "string cheese",
+        "price": 4,
+        "desc": "Another great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71af0a1b16fd0004d6c901",
+        "name": "cereal",
+        "price": 4,
+        "desc": "Another great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71af191b16fd0004d6c902",
+        "name": "pineapple",
+        "price": 4,
+        "desc": "Another great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71af711b16fd0004d6c903",
+        "name": "brownies",
+        "price": 4,
+        "desc": "Another great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71af781b16fd0004d6c904",
+        "name": "cookies",
+        "price": 4,
+        "desc": "Another great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71af891b16fd0004d6c905",
+        "name": "bagels",
+        "price": 4,
+        "desc": "Another great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71b08532df1f00042935ac",
+        "name": "toast",
+        "price": 4,
+        "desc": "Another great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71b13d427764000473640d",
+        "name": "crackers",
+        "price": 4,
+        "desc": "Another great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71b3a58ac20e0004f91d1d",
+        "name": "crackers",
+        "price": 4,
+        "desc": "Another great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c71b4474d7a7300048c3397",
+        "name": "shrimp cocktail",
+        "price": 8,
+        "desc": "Another great snack.",
+        "__v": 0
+    },
+    {
+        "_id": "5c7467a4584e4b0004eccf58",
+        "name": "cheetos",
+        "price": 8,
+        "desc": "Another great snack.",
+        "__v": 0
+    }
+]
