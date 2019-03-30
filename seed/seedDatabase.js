@@ -6,17 +6,16 @@ const client = new GraphQLClient("http://localhost:4466")
 const mutation = `mutation createProduct(
     $name: String,
     $price: Int,
-    $desc: String,
-    $id: String
+    $desc: String
 ) {
-    createPokemon(data: {
+    createProduct(data: {
       name: $name
       price: $price
       desc: $desc
-      id: $id
     })
     {
-      id
+        name
+        id
     }
   }
 `
@@ -32,7 +31,6 @@ async function main(inputFile) {
           name: item.name,
           price: item.price,
           desc: item.desc,
-          id: item.id,
         }
       
         await client
