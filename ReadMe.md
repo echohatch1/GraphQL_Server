@@ -3,24 +3,26 @@
 ## Setup
 
 ## Run the following commnads on setup
-
+```
 npm install
 npm run dockerStart
 npm run deploy
 npm run start
 npm run load
-
+```
 ## Queries
 
 ### Get all products
+```
 query {
   products {
     id
     name
   }
 }
-
+```
 ### Get one product
+```
 query {
   products(where: {
     id: "cjtrxz0v201su0717e4uzhopq"
@@ -30,8 +32,9 @@ query {
     price
   }
 }
-
+```
 ### Count all products
+```
 query {
   productsConnection {
     aggregate {
@@ -39,10 +42,11 @@ query {
     }
   }
 }
-
+```
 ## Mutations
 
 ### Create a new product
+```
 mutation {
   createProduct(
     data: {
@@ -57,8 +61,9 @@ mutation {
     desc
   }
 }
-
+```
 ### Update a product
+```
 mutation {
   updateProduct(
     data: {
@@ -73,8 +78,9 @@ mutation {
     price
   }
 }
-
+```
 ### Delete a product
+```
 mutation {
   deleteProduct(where: {
     id: "cjtrxz0v201su0717e4uzhopq"
@@ -84,3 +90,4 @@ mutation {
     desc
   }
 }
+```
