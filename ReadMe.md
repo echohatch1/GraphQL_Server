@@ -1,6 +1,7 @@
 # GraphQL API
 
 ## Queries
+
 ### Get all products
 query {
   products {
@@ -30,6 +31,7 @@ query {
 }
 
 ## Mutations
+
 ### Create a new product
 mutation {
   createProduct(
