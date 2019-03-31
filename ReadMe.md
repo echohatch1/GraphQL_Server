@@ -1,4 +1,7 @@
-# Get all products
+#GraphQL API
+
+##Queries
+### Get all products
 query {
   products {
     id
@@ -6,7 +9,7 @@ query {
   }
 }
 
-# Get one product
+### Get one product
 query {
   products(where: {
     id: "cjtrxz0v201su0717e4uzhopq"
@@ -17,7 +20,7 @@ query {
   }
 }
 
-# Count all products
+### Count all products
 query {
   productsConnection {
     aggregate {
@@ -26,7 +29,8 @@ query {
   }
 }
 
-# Create a new product
+##Mutations
+### Create a new product
 mutation {
   createProduct(
     data: {
@@ -42,7 +46,7 @@ mutation {
   }
 }
 
-# Update a product
+### Update a product
 mutation {
   updateProduct(
     data: {
@@ -58,7 +62,7 @@ mutation {
   }
 }
 
-# Delete a product
+### Delete a product
 mutation {
   deleteProduct(where: {
     id: "cjtrxz0v201su0717e4uzhopq"
