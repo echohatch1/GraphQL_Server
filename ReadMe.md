@@ -2,7 +2,7 @@
 
 ## Setup
 
-## Run the following commnads on setup
+### Run the following commnads on setup
 ```
 npm install
 npm run dockerStart
