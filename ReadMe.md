@@ -1,5 +1,15 @@
 # GraphQL API
 
+## Setup
+
+## Run the following commnads on setup
+
+npm install
+npm run dockerStart
+npm run deploy
+npm run start
+npm run load
+
 ## Queries
 
 ### Get all products

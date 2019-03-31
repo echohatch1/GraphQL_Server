@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "load": "node ./seed/seedDatabase.js",
     "dockerStart": "docker-compose -f ./docker-compose.yml up -d",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev --no-notify --respawn --transpileOnly ./",
     "deploy": "prisma deploy",
+    "start": "ts-node-dev --no-notify --respawn --transpileOnly ./",
+    "load": "node ./seed/seedDatabase.js",
     "reset": "prisma reset --force",
     "delete": "prisma delete --force"
   },
