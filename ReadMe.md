@@ -4,6 +4,7 @@
 
 ### Run the following commnads on setup
 ```
+cd into graphql_server
 npm install
 npm run dockerStart
 npm run deploy

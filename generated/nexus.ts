@@ -11,252 +11,37 @@ declare global {
 }
 
 export interface NexusGenInputs {
-  PostCreateInput: { // input type
-    author: NexusGenInputs['UserCreateOneWithoutPostsInput']; // UserCreateOneWithoutPostsInput!
-    content?: string | null; // String
-    published?: boolean | null; // Boolean
-    title: string; // String!
-  }
-  PostCreateManyWithoutAuthorInput: { // input type
-    connect?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
-    create?: NexusGenInputs['PostCreateWithoutAuthorInput'][] | null; // [PostCreateWithoutAuthorInput!]
-  }
-  PostCreateWithoutAuthorInput: { // input type
-    content?: string | null; // String
-    published?: boolean | null; // Boolean
-    title: string; // String!
-  }
-  PostScalarWhereInput: { // input type
-    AND?: NexusGenInputs['PostScalarWhereInput'][] | null; // [PostScalarWhereInput!]
-    content?: string | null; // String
-    content_contains?: string | null; // String
-    content_ends_with?: string | null; // String
-    content_gt?: string | null; // String
-    content_gte?: string | null; // String
-    content_in?: string[] | null; // [String!]
-    content_lt?: string | null; // String
-    content_lte?: string | null; // String
-    content_not?: string | null; // String
-    content_not_contains?: string | null; // String
-    content_not_ends_with?: string | null; // String
-    content_not_in?: string[] | null; // [String!]
-    content_not_starts_with?: string | null; // String
-    content_starts_with?: string | null; // String
-    createdAt?: any | null; // DateTime
-    createdAt_gt?: any | null; // DateTime
-    createdAt_gte?: any | null; // DateTime
-    createdAt_in?: any[] | null; // [DateTime!]
-    createdAt_lt?: any | null; // DateTime
-    createdAt_lte?: any | null; // DateTime
-    createdAt_not?: any | null; // DateTime
-    createdAt_not_in?: any[] | null; // [DateTime!]
-    id?: string | null; // ID
-    id_contains?: string | null; // ID
-    id_ends_with?: string | null; // ID
-    id_gt?: string | null; // ID
-    id_gte?: string | null; // ID
-    id_in?: string[] | null; // [ID!]
-    id_lt?: string | null; // ID
-    id_lte?: string | null; // ID
-    id_not?: string | null; // ID
-    id_not_contains?: string | null; // ID
-    id_not_ends_with?: string | null; // ID
-    id_not_in?: string[] | null; // [ID!]
-    id_not_starts_with?: string | null; // ID
-    id_starts_with?: string | null; // ID
-    NOT?: NexusGenInputs['PostScalarWhereInput'][] | null; // [PostScalarWhereInput!]
-    OR?: NexusGenInputs['PostScalarWhereInput'][] | null; // [PostScalarWhereInput!]
-    published?: boolean | null; // Boolean
-    published_not?: boolean | null; // Boolean
-    title?: string | null; // String
-    title_contains?: string | null; // String
-    title_ends_with?: string | null; // String
-    title_gt?: string | null; // String
-    title_gte?: string | null; // String
-    title_in?: string[] | null; // [String!]
-    title_lt?: string | null; // String
-    title_lte?: string | null; // String
-    title_not?: string | null; // String
-    title_not_contains?: string | null; // String
-    title_not_ends_with?: string | null; // String
-    title_not_in?: string[] | null; // [String!]
-    title_not_starts_with?: string | null; // String
-    title_starts_with?: string | null; // String
-    updatedAt?: any | null; // DateTime
-    updatedAt_gt?: any | null; // DateTime
-    updatedAt_gte?: any | null; // DateTime
-    updatedAt_in?: any[] | null; // [DateTime!]
-    updatedAt_lt?: any | null; // DateTime
-    updatedAt_lte?: any | null; // DateTime
-    updatedAt_not?: any | null; // DateTime
-    updatedAt_not_in?: any[] | null; // [DateTime!]
-  }
-  PostUpdateInput: { // input type
-    author?: NexusGenInputs['UserUpdateOneRequiredWithoutPostsInput'] | null; // UserUpdateOneRequiredWithoutPostsInput
-    content?: string | null; // String
-    published?: boolean | null; // Boolean
-    title?: string | null; // String
-  }
-  PostUpdateManyDataInput: { // input type
-    content?: string | null; // String
-    published?: boolean | null; // Boolean
-    title?: string | null; // String
-  }
-  PostUpdateManyMutationInput: { // input type
-    content?: string | null; // String
-    published?: boolean | null; // Boolean
-    title?: string | null; // String
-  }
-  PostUpdateManyWithWhereNestedInput: { // input type
-    data: NexusGenInputs['PostUpdateManyDataInput']; // PostUpdateManyDataInput!
-    where: NexusGenInputs['PostScalarWhereInput']; // PostScalarWhereInput!
-  }
-  PostUpdateManyWithoutAuthorInput: { // input type
-    connect?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
-    create?: NexusGenInputs['PostCreateWithoutAuthorInput'][] | null; // [PostCreateWithoutAuthorInput!]
-    delete?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
-    deleteMany?: NexusGenInputs['PostScalarWhereInput'][] | null; // [PostScalarWhereInput!]
-    disconnect?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
-    set?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
-    update?: NexusGenInputs['PostUpdateWithWhereUniqueWithoutAuthorInput'][] | null; // [PostUpdateWithWhereUniqueWithoutAuthorInput!]
-    updateMany?: NexusGenInputs['PostUpdateManyWithWhereNestedInput'][] | null; // [PostUpdateManyWithWhereNestedInput!]
-    upsert?: NexusGenInputs['PostUpsertWithWhereUniqueWithoutAuthorInput'][] | null; // [PostUpsertWithWhereUniqueWithoutAuthorInput!]
-  }
-  PostUpdateWithWhereUniqueWithoutAuthorInput: { // input type
-    data: NexusGenInputs['PostUpdateWithoutAuthorDataInput']; // PostUpdateWithoutAuthorDataInput!
-    where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
-  }
-  PostUpdateWithoutAuthorDataInput: { // input type
-    content?: string | null; // String
-    published?: boolean | null; // Boolean
-    title?: string | null; // String
-  }
-  PostUpsertWithWhereUniqueWithoutAuthorInput: { // input type
-    create: NexusGenInputs['PostCreateWithoutAuthorInput']; // PostCreateWithoutAuthorInput!
-    update: NexusGenInputs['PostUpdateWithoutAuthorDataInput']; // PostUpdateWithoutAuthorDataInput!
-    where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
-  }
-  PostWhereInput: { // input type
-    AND?: NexusGenInputs['PostWhereInput'][] | null; // [PostWhereInput!]
-    author?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
-    content?: string | null; // String
-    content_contains?: string | null; // String
-    content_ends_with?: string | null; // String
-    content_gt?: string | null; // String
-    content_gte?: string | null; // String
-    content_in?: string[] | null; // [String!]
-    content_lt?: string | null; // String
-    content_lte?: string | null; // String
-    content_not?: string | null; // String
-    content_not_contains?: string | null; // String
-    content_not_ends_with?: string | null; // String
-    content_not_in?: string[] | null; // [String!]
-    content_not_starts_with?: string | null; // String
-    content_starts_with?: string | null; // String
-    createdAt?: any | null; // DateTime
-    createdAt_gt?: any | null; // DateTime
-    createdAt_gte?: any | null; // DateTime
-    createdAt_in?: any[] | null; // [DateTime!]
-    createdAt_lt?: any | null; // DateTime
-    createdAt_lte?: any | null; // DateTime
-    createdAt_not?: any | null; // DateTime
-    createdAt_not_in?: any[] | null; // [DateTime!]
-    id?: string | null; // ID
-    id_contains?: string | null; // ID
-    id_ends_with?: string | null; // ID
-    id_gt?: string | null; // ID
-    id_gte?: string | null; // ID
-    id_in?: string[] | null; // [ID!]
-    id_lt?: string | null; // ID
-    id_lte?: string | null; // ID
-    id_not?: string | null; // ID
-    id_not_contains?: string | null; // ID
-    id_not_ends_with?: string | null; // ID
-    id_not_in?: string[] | null; // [ID!]
-    id_not_starts_with?: string | null; // ID
-    id_starts_with?: string | null; // ID
-    NOT?: NexusGenInputs['PostWhereInput'][] | null; // [PostWhereInput!]
-    OR?: NexusGenInputs['PostWhereInput'][] | null; // [PostWhereInput!]
-    published?: boolean | null; // Boolean
-    published_not?: boolean | null; // Boolean
-    title?: string | null; // String
-    title_contains?: string | null; // String
-    title_ends_with?: string | null; // String
-    title_gt?: string | null; // String
-    title_gte?: string | null; // String
-    title_in?: string[] | null; // [String!]
-    title_lt?: string | null; // String
-    title_lte?: string | null; // String
-    title_not?: string | null; // String
-    title_not_contains?: string | null; // String
-    title_not_ends_with?: string | null; // String
-    title_not_in?: string[] | null; // [String!]
-    title_not_starts_with?: string | null; // String
-    title_starts_with?: string | null; // String
-    updatedAt?: any | null; // DateTime
-    updatedAt_gt?: any | null; // DateTime
-    updatedAt_gte?: any | null; // DateTime
-    updatedAt_in?: any[] | null; // [DateTime!]
-    updatedAt_lt?: any | null; // DateTime
-    updatedAt_lte?: any | null; // DateTime
-    updatedAt_not?: any | null; // DateTime
-    updatedAt_not_in?: any[] | null; // [DateTime!]
-  }
-  PostWhereUniqueInput: { // input type
-    id?: string | null; // ID
-  }
-  UserCreateInput: { // input type
-    email: string; // String!
+  ProductCreateInput: { // input type
+    desc?: string | null; // String
     name?: string | null; // String
-    posts?: NexusGenInputs['PostCreateManyWithoutAuthorInput'] | null; // PostCreateManyWithoutAuthorInput
+    price?: number | null; // Int
   }
-  UserCreateOneWithoutPostsInput: { // input type
-    connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
-    create?: NexusGenInputs['UserCreateWithoutPostsInput'] | null; // UserCreateWithoutPostsInput
-  }
-  UserCreateWithoutPostsInput: { // input type
-    email: string; // String!
+  ProductUpdateInput: { // input type
+    desc?: string | null; // String
     name?: string | null; // String
+    price?: number | null; // Int
   }
-  UserUpdateInput: { // input type
-    email?: string | null; // String
+  ProductUpdateManyMutationInput: { // input type
+    desc?: string | null; // String
     name?: string | null; // String
-    posts?: NexusGenInputs['PostUpdateManyWithoutAuthorInput'] | null; // PostUpdateManyWithoutAuthorInput
+    price?: number | null; // Int
   }
-  UserUpdateManyMutationInput: { // input type
-    email?: string | null; // String
-    name?: string | null; // String
-  }
-  UserUpdateOneRequiredWithoutPostsInput: { // input type
-    connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
-    create?: NexusGenInputs['UserCreateWithoutPostsInput'] | null; // UserCreateWithoutPostsInput
-    update?: NexusGenInputs['UserUpdateWithoutPostsDataInput'] | null; // UserUpdateWithoutPostsDataInput
-    upsert?: NexusGenInputs['UserUpsertWithoutPostsInput'] | null; // UserUpsertWithoutPostsInput
-  }
-  UserUpdateWithoutPostsDataInput: { // input type
-    email?: string | null; // String
-    name?: string | null; // String
-  }
-  UserUpsertWithoutPostsInput: { // input type
-    create: NexusGenInputs['UserCreateWithoutPostsInput']; // UserCreateWithoutPostsInput!
-    update: NexusGenInputs['UserUpdateWithoutPostsDataInput']; // UserUpdateWithoutPostsDataInput!
-  }
-  UserWhereInput: { // input type
-    AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
-    email?: string | null; // String
-    email_contains?: string | null; // String
-    email_ends_with?: string | null; // String
-    email_gt?: string | null; // String
-    email_gte?: string | null; // String
-    email_in?: string[] | null; // [String!]
-    email_lt?: string | null; // String
-    email_lte?: string | null; // String
-    email_not?: string | null; // String
-    email_not_contains?: string | null; // String
-    email_not_ends_with?: string | null; // String
-    email_not_in?: string[] | null; // [String!]
-    email_not_starts_with?: string | null; // String
-    email_starts_with?: string | null; // String
+  ProductWhereInput: { // input type
+    AND?: NexusGenInputs['ProductWhereInput'][] | null; // [ProductWhereInput!]
+    desc?: string | null; // String
+    desc_contains?: string | null; // String
+    desc_ends_with?: string | null; // String
+    desc_gt?: string | null; // String
+    desc_gte?: string | null; // String
+    desc_in?: string[] | null; // [String!]
+    desc_lt?: string | null; // String
+    desc_lte?: string | null; // String
+    desc_not?: string | null; // String
+    desc_not_contains?: string | null; // String
+    desc_not_ends_with?: string | null; // String
+    desc_not_in?: string[] | null; // [String!]
+    desc_not_starts_with?: string | null; // String
+    desc_starts_with?: string | null; // String
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -285,28 +70,28 @@ export interface NexusGenInputs {
     name_not_in?: string[] | null; // [String!]
     name_not_starts_with?: string | null; // String
     name_starts_with?: string | null; // String
-    NOT?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
-    OR?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
-    posts_every?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
-    posts_none?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
-    posts_some?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    NOT?: NexusGenInputs['ProductWhereInput'][] | null; // [ProductWhereInput!]
+    OR?: NexusGenInputs['ProductWhereInput'][] | null; // [ProductWhereInput!]
+    price?: number | null; // Int
+    price_gt?: number | null; // Int
+    price_gte?: number | null; // Int
+    price_in?: number[] | null; // [Int!]
+    price_lt?: number | null; // Int
+    price_lte?: number | null; // Int
+    price_not?: number | null; // Int
+    price_not_in?: number[] | null; // [Int!]
   }
-  UserWhereUniqueInput: { // input type
-    email?: string | null; // String
+  ProductWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
 }
 
 export interface NexusGenEnums {
-  PostOrderByInput: "content_ASC" | "content_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "published_ASC" | "published_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
-  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ProductOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "desc_ASC" | "desc_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "price_ASC" | "price_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
 export interface NexusGenRootTypes {
-  AggregatePost: { // root type
-    count: number; // Int!
-  }
-  AggregateUser: { // root type
+  AggregateProduct: { // root type
     count: number; // Int!
   }
   BatchPayload: { // root type
@@ -319,97 +104,52 @@ export interface NexusGenRootTypes {
     hasPreviousPage: boolean; // Boolean!
     startCursor?: string | null; // String
   }
-  Post: { // root type
-    content?: string | null; // String
-    createdAt: any; // DateTime!
-    id: string; // ID!
-    published: boolean; // Boolean!
-    title: string; // String!
-    updatedAt: any; // DateTime!
-  }
-  PostConnection: { // root type
-    edges: NexusGenRootTypes['PostEdge'][]; // [PostEdge!]!
-    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
-  }
-  PostEdge: { // root type
-    cursor: string; // String!
-    node: NexusGenRootTypes['Post']; // Post!
-  }
-  Query: {};
-  User: { // root type
-    email: string; // String!
+  Product: { // root type
+    desc?: string | null; // String
     id: string; // ID!
     name?: string | null; // String
+    price?: number | null; // Int
   }
-  UserConnection: { // root type
-    edges: NexusGenRootTypes['UserEdge'][]; // [UserEdge!]!
+  ProductConnection: { // root type
+    edges: NexusGenRootTypes['ProductEdge'][]; // [ProductEdge!]!
     pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
   }
-  UserEdge: { // root type
+  ProductEdge: { // root type
     cursor: string; // String!
-    node: NexusGenRootTypes['User']; // User!
+    node: NexusGenRootTypes['Product']; // Product!
   }
+  Query: {};
   String: string;
   Int: number;
   Float: number;
   Boolean: boolean;
   ID: string;
-  DateTime: any;
   Long: any;
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
-  PostCreateInput: NexusGenInputs['PostCreateInput'];
-  PostCreateManyWithoutAuthorInput: NexusGenInputs['PostCreateManyWithoutAuthorInput'];
-  PostCreateWithoutAuthorInput: NexusGenInputs['PostCreateWithoutAuthorInput'];
-  PostScalarWhereInput: NexusGenInputs['PostScalarWhereInput'];
-  PostUpdateInput: NexusGenInputs['PostUpdateInput'];
-  PostUpdateManyDataInput: NexusGenInputs['PostUpdateManyDataInput'];
-  PostUpdateManyMutationInput: NexusGenInputs['PostUpdateManyMutationInput'];
-  PostUpdateManyWithWhereNestedInput: NexusGenInputs['PostUpdateManyWithWhereNestedInput'];
-  PostUpdateManyWithoutAuthorInput: NexusGenInputs['PostUpdateManyWithoutAuthorInput'];
-  PostUpdateWithWhereUniqueWithoutAuthorInput: NexusGenInputs['PostUpdateWithWhereUniqueWithoutAuthorInput'];
-  PostUpdateWithoutAuthorDataInput: NexusGenInputs['PostUpdateWithoutAuthorDataInput'];
-  PostUpsertWithWhereUniqueWithoutAuthorInput: NexusGenInputs['PostUpsertWithWhereUniqueWithoutAuthorInput'];
-  PostWhereInput: NexusGenInputs['PostWhereInput'];
-  PostWhereUniqueInput: NexusGenInputs['PostWhereUniqueInput'];
-  UserCreateInput: NexusGenInputs['UserCreateInput'];
-  UserCreateOneWithoutPostsInput: NexusGenInputs['UserCreateOneWithoutPostsInput'];
-  UserCreateWithoutPostsInput: NexusGenInputs['UserCreateWithoutPostsInput'];
-  UserUpdateInput: NexusGenInputs['UserUpdateInput'];
-  UserUpdateManyMutationInput: NexusGenInputs['UserUpdateManyMutationInput'];
-  UserUpdateOneRequiredWithoutPostsInput: NexusGenInputs['UserUpdateOneRequiredWithoutPostsInput'];
-  UserUpdateWithoutPostsDataInput: NexusGenInputs['UserUpdateWithoutPostsDataInput'];
-  UserUpsertWithoutPostsInput: NexusGenInputs['UserUpsertWithoutPostsInput'];
-  UserWhereInput: NexusGenInputs['UserWhereInput'];
-  UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
-  PostOrderByInput: NexusGenEnums['PostOrderByInput'];
-  UserOrderByInput: NexusGenEnums['UserOrderByInput'];
+  ProductCreateInput: NexusGenInputs['ProductCreateInput'];
+  ProductUpdateInput: NexusGenInputs['ProductUpdateInput'];
+  ProductUpdateManyMutationInput: NexusGenInputs['ProductUpdateManyMutationInput'];
+  ProductWhereInput: NexusGenInputs['ProductWhereInput'];
+  ProductWhereUniqueInput: NexusGenInputs['ProductWhereUniqueInput'];
+  ProductOrderByInput: NexusGenEnums['ProductOrderByInput'];
 }
 
 export interface NexusGenFieldTypes {
-  AggregatePost: { // field return type
-    count: number; // Int!
-  }
-  AggregateUser: { // field return type
+  AggregateProduct: { // field return type
     count: number; // Int!
   }
   BatchPayload: { // field return type
     count: any; // Long!
   }
   Mutation: { // field return type
-    createPost: NexusGenRootTypes['Post']; // Post!
-    createUser: NexusGenRootTypes['User']; // User!
-    deleteManyPosts: NexusGenRootTypes['BatchPayload']; // BatchPayload!
-    deleteManyUsers: NexusGenRootTypes['BatchPayload']; // BatchPayload!
-    deletePost: NexusGenRootTypes['Post'] | null; // Post
-    deleteUser: NexusGenRootTypes['User'] | null; // User
-    updateManyPosts: NexusGenRootTypes['BatchPayload']; // BatchPayload!
-    updateManyUsers: NexusGenRootTypes['BatchPayload']; // BatchPayload!
-    updatePost: NexusGenRootTypes['Post'] | null; // Post
-    updateUser: NexusGenRootTypes['User'] | null; // User
-    upsertPost: NexusGenRootTypes['Post']; // Post!
-    upsertUser: NexusGenRootTypes['User']; // User!
+    createProduct: NexusGenRootTypes['Product']; // Product!
+    deleteManyProducts: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteProduct: NexusGenRootTypes['Product'] | null; // Product
+    updateManyProducts: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateProduct: NexusGenRootTypes['Product'] | null; // Product
+    upsertProduct: NexusGenRootTypes['Product']; // Product!
   }
   PageInfo: { // field return type
     endCursor: string | null; // String
@@ -417,149 +157,74 @@ export interface NexusGenFieldTypes {
     hasPreviousPage: boolean; // Boolean!
     startCursor: string | null; // String
   }
-  Post: { // field return type
-    author: NexusGenRootTypes['User']; // User!
-    content: string | null; // String
-    createdAt: any; // DateTime!
-    id: string; // ID!
-    published: boolean; // Boolean!
-    title: string; // String!
-    updatedAt: any; // DateTime!
-  }
-  PostConnection: { // field return type
-    aggregate: NexusGenRootTypes['AggregatePost']; // AggregatePost!
-    edges: NexusGenRootTypes['PostEdge'][]; // [PostEdge!]!
-    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
-  }
-  PostEdge: { // field return type
-    cursor: string; // String!
-    node: NexusGenRootTypes['Post']; // Post!
-  }
-  Query: { // field return type
-    post: NexusGenRootTypes['Post'] | null; // Post
-    posts: NexusGenRootTypes['Post'][]; // [Post!]!
-    postsConnection: NexusGenRootTypes['PostConnection']; // PostConnection!
-    user: NexusGenRootTypes['User'] | null; // User
-    users: NexusGenRootTypes['User'][]; // [User!]!
-    usersConnection: NexusGenRootTypes['UserConnection']; // UserConnection!
-  }
-  User: { // field return type
-    email: string; // String!
+  Product: { // field return type
+    desc: string | null; // String
     id: string; // ID!
     name: string | null; // String
-    posts: NexusGenRootTypes['Post'][] | null; // [Post!]
+    price: number | null; // Int
   }
-  UserConnection: { // field return type
-    aggregate: NexusGenRootTypes['AggregateUser']; // AggregateUser!
-    edges: NexusGenRootTypes['UserEdge'][]; // [UserEdge!]!
+  ProductConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateProduct']; // AggregateProduct!
+    edges: NexusGenRootTypes['ProductEdge'][]; // [ProductEdge!]!
     pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
   }
-  UserEdge: { // field return type
+  ProductEdge: { // field return type
     cursor: string; // String!
-    node: NexusGenRootTypes['User']; // User!
+    node: NexusGenRootTypes['Product']; // Product!
+  }
+  Query: { // field return type
+    product: NexusGenRootTypes['Product'] | null; // Product
+    products: NexusGenRootTypes['Product'][]; // [Product!]!
+    productsConnection: NexusGenRootTypes['ProductConnection']; // ProductConnection!
   }
 }
 
 export interface NexusGenArgTypes {
   Mutation: {
-    createPost: { // args
-      data: NexusGenInputs['PostCreateInput']; // PostCreateInput!
+    createProduct: { // args
+      data: NexusGenInputs['ProductCreateInput']; // ProductCreateInput!
     }
-    createUser: { // args
-      data: NexusGenInputs['UserCreateInput']; // UserCreateInput!
+    deleteManyProducts: { // args
+      where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
-    deleteManyPosts: { // args
-      where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+    deleteProduct: { // args
+      where: NexusGenInputs['ProductWhereUniqueInput']; // ProductWhereUniqueInput!
     }
-    deleteManyUsers: { // args
-      where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    updateManyProducts: { // args
+      data: NexusGenInputs['ProductUpdateManyMutationInput']; // ProductUpdateManyMutationInput!
+      where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
-    deletePost: { // args
-      where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
+    updateProduct: { // args
+      data: NexusGenInputs['ProductUpdateInput']; // ProductUpdateInput!
+      where: NexusGenInputs['ProductWhereUniqueInput']; // ProductWhereUniqueInput!
     }
-    deleteUser: { // args
-      where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
-    }
-    updateManyPosts: { // args
-      data: NexusGenInputs['PostUpdateManyMutationInput']; // PostUpdateManyMutationInput!
-      where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
-    }
-    updateManyUsers: { // args
-      data: NexusGenInputs['UserUpdateManyMutationInput']; // UserUpdateManyMutationInput!
-      where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
-    }
-    updatePost: { // args
-      data: NexusGenInputs['PostUpdateInput']; // PostUpdateInput!
-      where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
-    }
-    updateUser: { // args
-      data: NexusGenInputs['UserUpdateInput']; // UserUpdateInput!
-      where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
-    }
-    upsertPost: { // args
-      create: NexusGenInputs['PostCreateInput']; // PostCreateInput!
-      update: NexusGenInputs['PostUpdateInput']; // PostUpdateInput!
-      where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
-    }
-    upsertUser: { // args
-      create: NexusGenInputs['UserCreateInput']; // UserCreateInput!
-      update: NexusGenInputs['UserUpdateInput']; // UserUpdateInput!
-      where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
+    upsertProduct: { // args
+      create: NexusGenInputs['ProductCreateInput']; // ProductCreateInput!
+      update: NexusGenInputs['ProductUpdateInput']; // ProductUpdateInput!
+      where: NexusGenInputs['ProductWhereUniqueInput']; // ProductWhereUniqueInput!
     }
   }
   Query: {
-    post: { // args
-      where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
+    product: { // args
+      where: NexusGenInputs['ProductWhereUniqueInput']; // ProductWhereUniqueInput!
     }
-    posts: { // args
+    products: { // args
       after?: string | null; // String
       before?: string | null; // String
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenEnums['PostOrderByInput'] | null; // PostOrderByInput
+      orderBy?: NexusGenEnums['ProductOrderByInput'] | null; // ProductOrderByInput
       skip?: number | null; // Int
-      where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+      where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
-    postsConnection: { // args
+    productsConnection: { // args
       after?: string | null; // String
       before?: string | null; // String
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenEnums['PostOrderByInput'] | null; // PostOrderByInput
+      orderBy?: NexusGenEnums['ProductOrderByInput'] | null; // ProductOrderByInput
       skip?: number | null; // Int
-      where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
-    }
-    user: { // args
-      where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
-    }
-    users: { // args
-      after?: string | null; // String
-      before?: string | null; // String
-      first?: number | null; // Int
-      last?: number | null; // Int
-      orderBy?: NexusGenEnums['UserOrderByInput'] | null; // UserOrderByInput
-      skip?: number | null; // Int
-      where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
-    }
-    usersConnection: { // args
-      after?: string | null; // String
-      before?: string | null; // String
-      first?: number | null; // Int
-      last?: number | null; // Int
-      orderBy?: NexusGenEnums['UserOrderByInput'] | null; // UserOrderByInput
-      skip?: number | null; // Int
-      where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
-    }
-  }
-  User: {
-    posts: { // args
-      after?: string | null; // String
-      before?: string | null; // String
-      first?: number | null; // Int
-      last?: number | null; // Int
-      orderBy?: NexusGenEnums['PostOrderByInput'] | null; // PostOrderByInput
-      skip?: number | null; // Int
-      where?: NexusGenInputs['PostWhereInput'] | null; // PostWhereInput
+      where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
   }
 }
@@ -569,15 +234,15 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AggregatePost" | "AggregateUser" | "BatchPayload" | "Mutation" | "PageInfo" | "Post" | "PostConnection" | "PostEdge" | "Query" | "User" | "UserConnection" | "UserEdge";
+export type NexusGenObjectNames = "AggregateProduct" | "BatchPayload" | "Mutation" | "PageInfo" | "Product" | "ProductConnection" | "ProductEdge" | "Query";
 
-export type NexusGenInputNames = "PostCreateInput" | "PostCreateManyWithoutAuthorInput" | "PostCreateWithoutAuthorInput" | "PostScalarWhereInput" | "PostUpdateInput" | "PostUpdateManyDataInput" | "PostUpdateManyMutationInput" | "PostUpdateManyWithWhereNestedInput" | "PostUpdateManyWithoutAuthorInput" | "PostUpdateWithWhereUniqueWithoutAuthorInput" | "PostUpdateWithoutAuthorDataInput" | "PostUpsertWithWhereUniqueWithoutAuthorInput" | "PostWhereInput" | "PostWhereUniqueInput" | "UserCreateInput" | "UserCreateOneWithoutPostsInput" | "UserCreateWithoutPostsInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserUpdateOneRequiredWithoutPostsInput" | "UserUpdateWithoutPostsDataInput" | "UserUpsertWithoutPostsInput" | "UserWhereInput" | "UserWhereUniqueInput";
+export type NexusGenInputNames = "ProductCreateInput" | "ProductUpdateInput" | "ProductUpdateManyMutationInput" | "ProductWhereInput" | "ProductWhereUniqueInput";
 
-export type NexusGenEnumNames = "PostOrderByInput" | "UserOrderByInput";
+export type NexusGenEnumNames = "ProductOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 
-export type NexusGenScalarNames = "Boolean" | "DateTime" | "Float" | "ID" | "Int" | "Long" | "String";
+export type NexusGenScalarNames = "Boolean" | "Float" | "ID" | "Int" | "Long" | "String";
 
 export type NexusGenUnionNames = never;
 
