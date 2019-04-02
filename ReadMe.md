@@ -22,7 +22,7 @@ query {
   }
 }
 ```
-### Get one product
+### Get one product by ID
 ```
 query {
   products(where: {
@@ -34,13 +34,15 @@ query {
   }
 }
 ```
-### Count all products
+### Get one product by name
 ```
 query {
-  productsConnection {
-    aggregate {
-      count
-    }
+  products(where: {
+    name: "toothbrush"
+  }) {
+	  id
+    name
+    price
   }
 }
 ```
