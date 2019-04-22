@@ -7,11 +7,15 @@ const mutation = `mutation createProduct(
     $name: String,
     $price: Int,
     $desc: String
+    $weight: String
+    $manuf: String
 ) {
     createProduct(data: {
       name: $name
       price: $price
       desc: $desc
+      weight: $weight
+      manuf: $manuf
     })
     {
         name
@@ -31,6 +35,8 @@ async function main(inputFile) {
           name: item.name,
           price: item.price,
           desc: item.desc,
+          weight: item.weight,
+          manuf: item.manuf
         }
       
         await client
