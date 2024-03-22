@@ -5,11 +5,11 @@
   "main": "index.ts",
   "scripts": {
     "dockerStart": "docker-compose -f ./docker-compose.yml up -d",
-    "deploy": "prisma deploy",
-    "start": "ts-node-dev --no-notify --respawn --transpileOnly ./",
+    "deploy": "prisma1 deploy",
+    "start": "ts-node-dev index.ts --no-notify --respawn --transpileOnly ./",
     "load": "node ./seed/seedDatabase.js",
-    "reset": "prisma reset --force",
-    "delete": "prisma delete --force"
+    "reset": "prisma1 reset --force",
+    "delete": "prisma1 delete --force"
   },
   "keywords": [],
   "author": "",
