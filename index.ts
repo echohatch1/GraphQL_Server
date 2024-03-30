@@ -1,8 +1,12 @@
-import * as path from 'path'
-import express from 'express'
-import { ApolloServer } from 'apollo-server-express'
-import { makeSchema, objectType, stringArg, intArg, inputObjectType, arg } from 'nexus'
-import { PrismaClient } from '@prisma/client'
+import * as path from 'path';
+import express from 'express';
+import { ApolloServer } from 'apollo-server-express';
+import { createServer } from 'http';
+import { execute, subscribe } from 'graphql';
+import { SubscriptionServer } from 'subscriptions-transport-ws';
+import { makeSchema, objectType, stringArg, intArg, inputObjectType, arg } from 'nexus';
+import { PrismaClient } from '@prisma/client';
+import { idArg } from 'nexus';
 
 const prisma = new PrismaClient()
 
@@ -21,10 +25,10 @@ const Product = objectType({
 const ProductWhereInput = inputObjectType({
   name: 'ProductWhereInput',
   definition(t) {
-    t.string('id')
-    t.string('name')
+    t.field('id', { type: 'ID' });
+    t.string('name');
   },
-})
+});
 
 const ProductInput = inputObjectType({
   name: 'ProductInput',
@@ -100,11 +104,25 @@ const server = new ApolloServer({
 });
 
 const app = express();
+const httpServer = createServer(app);
 
 server.start().then(() => {
   server.applyMiddleware({ app, path: '/' });
 
-  app.listen({ port: 5555 }, () =>
+  // Set up SubscriptionServer
+  SubscriptionServer.create(
+    {
+      schema,
+      execute,
+      subscribe,
+    },
+    {
+      server: httpServer,
+      path: '/',
+    },
+  );
+
+  httpServer.listen({ port: 5555 }, () =>
     console.log(`🚀 Server ready at http://localhost:5555${server.graphqlPath}`)
   );
 });
