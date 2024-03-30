@@ -4,27 +4,29 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dockerStart": "docker-compose -f ./docker-compose.yml up -d",
-    "deploy": "prisma1 deploy",
+    "dockerStart": "docker-compose up -d",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev && prisma generate",
     "start": "ts-node-dev index.ts --no-notify --respawn --transpileOnly ./",
     "load": "node ./seed/seedDatabase.js",
-    "reset": "prisma1 reset --force",
-    "delete": "prisma1 delete --force"
+    "reset": "prisma db push --force-reset"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "graphql": "^14.7.0",
-    "graphql-request": "^1.8.2",
-    "graphql-yoga": "^1.18.3",
-    "nexus": "^0.10.0",
-    "nexus-prisma": "^0.3.8",
-    "prisma-client-lib": "^1.34.12"
+    "@prisma/client": "^5.11.0",
+    "apollo-server-express": "^3.13.0",
+    "express": "^4.19.2",
+    "graphql": "^15.8.0",
+    "graphql-request": "^6.1.0",
+    "meow": "^13.2.0",
+    "nexus": "^1.3.0",
+    "prisma": "^5.11.0"
   },
   "devDependencies": {
-    "ts-node": "^8.10.2",
+    "ts-node": "^10.9.1",
     "ts-node-dev": "^1.1.1",
-    "typescript": "^3.9.7"
+    "typescript": "^5.4.3"
   }
 }

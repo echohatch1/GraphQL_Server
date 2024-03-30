@@ -1,8 +1,0 @@
-type Product {
-  id: ID! @unique
-  name: String
-  price: Int
-  desc: String
-  weight: String
-  manuf: String
-}

@@ -1,34 +1,110 @@
 import * as path from 'path'
-import { GraphQLServer } from 'graphql-yoga'
-import { makePrismaSchema, prismaObjectType } from 'nexus-prisma'
-import { prisma } from './generated/prisma-client'
-import datamodelInfo from './generated/nexus-prisma'
+import express from 'express'
+import { ApolloServer } from 'apollo-server-express'
+import { makeSchema, objectType, stringArg, intArg, inputObjectType, arg } from 'nexus'
+import { PrismaClient } from '@prisma/client'
 
-const Query = prismaObjectType({ 
+const prisma = new PrismaClient()
+
+const Product = objectType({
+  name: 'Product',
+  definition(t) {
+    t.string('id')
+    t.string('name')
+    t.int('price')
+    t.string('desc')
+    t.string('weight')
+    t.string('manuf')
+  },
+})
+
+const ProductWhereInput = inputObjectType({
+  name: 'ProductWhereInput',
+  definition(t) {
+    t.string('id')
+    t.string('name')
+  },
+})
+
+const ProductInput = inputObjectType({
+  name: 'ProductInput',
+  definition(t) {
+    t.string('name')
+    t.int('price')
+    t.string('desc')
+    t.string('weight')
+    t.string('manuf')
+  },
+})
+
+const Query = objectType({
   name: 'Query',
-  definition: t => t.prismaFields(['*'])
+  definition(t) {
+    t.list.field('products', {
+      type: 'Product',
+      args: {
+        where: arg({ type: 'ProductWhereInput' }),
+      },
+      resolve: (_, { where }) => {
+        if (where) {
+          return prisma.product.findMany({
+            where,
+          })
+        } else {
+          return prisma.product.findMany()
+        }
+      },
+    })
+  },
 })
-const Mutation = prismaObjectType({ 
+
+const Mutation = objectType({
   name: 'Mutation',
-  definition: t => t.prismaFields(['*'])
+  definition(t) {
+    t.nonNull.field('createProduct', {
+      type: 'Product',
+      args: {
+        data: arg({ type: 'ProductInput' }),
+      },
+      resolve: (_, { data }) => prisma.product.create({ data }),
+    })
+    t.field('updateProduct', {
+      type: 'Product',
+      args: {
+        where: arg({ type: 'ProductWhereInput' }),
+        data: arg({ type: 'ProductInput' }),
+      },
+      resolve: (_, { where, data }) => prisma.product.update({ where, data }),
+    })
+    t.field('deleteProduct', {
+      type: 'Product',
+      args: {
+        where: arg({ type: 'ProductWhereInput' }),
+      },
+      resolve: (_, { where }) => prisma.product.delete({ where }),
+    })
+  },
 })
 
-const schema = makePrismaSchema({
-  types: [Query, Mutation],
-
-  prisma: {
-    datamodelInfo,
-    client: prisma
-  },
-
+export const schema = makeSchema({
+  types: [Query, Mutation, Product, ProductWhereInput, ProductInput],
   outputs: {
-    schema: path.join(__dirname, './generated/schema.graphql'),
-    typegen: path.join(__dirname, './generated/nexus.ts'),
+    schema: __dirname + '/../schema.graphql',
+    typegen: __dirname + '/generated/nexus.ts',
   },
 })
 
-const server = new GraphQLServer({
+const server = new ApolloServer({
   schema,
-  context: { prisma }
-})
-server.start(() => console.log(`Server is running on http://localhost:5555`))
+  context: { prisma },
+});
+
+const app = express();
+
+server.start().then(() => {
+  server.applyMiddleware({ app, path: '/' });
+
+  app.listen({ port: 5555 }, () =>
+    console.log(`🚀 Server ready at http://localhost:5555${server.graphqlPath}`)
+  );
+});

@@ -1,15 +1,21 @@
-# GraphQL API 
+# GraphQL API
 
 ## Setup
 
 ### Run the following commnads on setup
 ```
-cd into graphql_server
+cd graphql_server
 npm install
 npm run dockerStart
-npm run deploy
+npm run generate
 npm run start
 ```
+
+#### If you want to load some sample data, you can run the following script after the server is running
+```
+npm run load
+```
+
 ## Queries
 
 ### Get all products

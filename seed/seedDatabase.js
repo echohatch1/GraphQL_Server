@@ -1,13 +1,13 @@
 const fs = require("fs")
 const { GraphQLClient } = require("graphql-request")
 
-const client = new GraphQLClient("http://localhost:4466")
+const client = new GraphQLClient("http://localhost:5555")
 
 const mutation = `mutation createProduct(
     $name: String,
     $price: Int,
-    $desc: String
-    $weight: String
+    $desc: String,
+    $weight: String,
     $manuf: String
 ) {
     createProduct(data: {
