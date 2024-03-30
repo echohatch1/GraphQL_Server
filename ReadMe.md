@@ -1,4 +1,4 @@
-# GraphQL API
+# GraphQL API 
 
 ## Setup
 
